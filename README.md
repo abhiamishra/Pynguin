@@ -11,3 +11,5 @@ Minimum Value Product:
   - store numerical, textile, and image data (Amazon S3/MS Azure for image storing)
 - OAuth
 - Simple image classification model
+
+#  <img src="https://github.com/abhiamishra/Pynguin/blob/main/pic2.jpg" align="center"/>
