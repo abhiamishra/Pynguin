@@ -1,0 +1,13 @@
+# ResNet
+Skip Connection
+- normally, convolution layers are stacked one after the other
+- skip connection: adding the original input to a layers
+
+Skip connections work because they prevent vanishing gradient problem
+from happening since we have alternate flows for the gradient to consider.
+
+Allow model to learn an identity function which ensures that the higher layers performs
+as well as the layers below it.
+
+Two types of skip connections: Identity blocks - add the data directly
+Bottleneck/convolutional block: performs a convolution by Batch normalization
