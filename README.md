@@ -6,10 +6,10 @@ Create an Identification app that takes input from users, textile and photo-base
 
 Minimum Value Product:
 
-- Functioning Classification model based on textile data
+- Functioning Classification model based on textile data - **DONE**
 - User connection to database (PostgreSQL, etc)
   - store numerical, textile, and image data (Amazon S3/MS Azure for image storing)
 - OAuth
-- Simple image classification model
+- Simple image classification model - **DONE**
 
 #  <img src="https://github.com/abhiamishra/Pynguin/blob/main/pic2.jpg" align="center"/>
