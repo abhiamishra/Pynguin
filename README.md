@@ -9,7 +9,9 @@ Minimum Value Product:
 - Functioning Classification model based on textile data - **DONE**
 - User connection to database (PostgreSQL, etc)
   - store numerical, textile, and image data (Amazon S3/MS Azure for image storing)
-- OAuth
+  - **EDIT**
+    - CRUD established
+- OAuth - **DONE**
 - Simple image classification model - **DONE**
 
 #  <img src="https://github.com/abhiamishra/Pynguin/blob/main/pic2.jpg" align="center"/>
