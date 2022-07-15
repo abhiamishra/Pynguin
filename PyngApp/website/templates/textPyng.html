@@ -1,0 +1,74 @@
+{% extends "base.html" %} {% block title %}TextPyng{% endblock %}
+
+{% block content %}
+    <form action = '/textPyng' method="POST">
+        Island: <input type="text" name="island"><br>
+        Bill Length (mm): <input type="text" name="bill_length_mm"><br>
+        Bill Depth (mm): <input type="text" name="bill_depth_mm"><br>
+        Flipper Length (mm): <input type="text" name="flipper_length_mm"><br>
+        Body Mass (g): <input type="text" name="body_mass_g"><br>
+        Sex: <input type="text" name="sex"><br>
+        Year: <input type="text" name="year"><br>
+        Class: {{result}} <br>
+        <input type="submit" value="predict">
+        <!-- <h3 align = "center">Sign up</h3>
+        <div class="form-group">
+            <label for="island">Island</label>
+            <input 
+                type="text"
+                class="form-control" 
+                id="email" 
+                name="island" 
+                placeholder="Enter island found on"
+            />
+        </div>
+        <div class="form-group">
+            <label for="bill_length_mm">Bill Length (mm)</label>
+            <input 
+                type="text"
+                class="form-control" 
+                id="bill_length_mm" 
+                name="bill_length_mm" 
+            />
+        </div>
+        <div class="form-group">
+            <label for="bill_depth_mm">Bill Depth (mm)</label>
+            <input 
+                type="text"
+                class="form-control" 
+                id="bill_depth_mm" 
+                name="bill_depth_mm" 
+            />
+        </div>
+        <div class="form-group">
+            <label for="flipper_length_mm">Flipper Length (mm)</label>
+            <input 
+                type="text"
+                class="form-control" 
+                id="flipper_length_mm" 
+                name="flipper_length_mm" 
+            />
+        </div>
+        <div class="form-group">
+            <label for="sex">Sex</label>
+            <input 
+                type="text"
+                class="form-control" 
+                id="sex" 
+                name="sex" 
+            />
+        </div>
+        <div class="form-group">
+            <label for="year">year</label>
+            <input 
+                type="text"
+                class="form-control" 
+                id="year" 
+                name="year" 
+            />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button> -->
+    <!-- </form>
+</body> -->
+{% endblock %}

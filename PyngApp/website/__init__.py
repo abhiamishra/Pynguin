@@ -2,9 +2,19 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
+import pickle
+from joblib import load
  
 db = SQLAlchemy()
 DB_NAME = "database.db"
+
+#Loading the model
+textPyng = pickle.load(open('pyngit.sav', 'rb'))
+
+#Loading model encoders
+inputEncoder = load('scale_encoder.joblib') # load and reuse the model
+finalEncoder = load('oneHot_encoder.joblib') # load and reuse the model
+
 
 def create_app():
     app = Flask(__name__) ##__name__ -> name of the file that was ran
