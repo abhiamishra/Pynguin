@@ -3,8 +3,12 @@ from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
 from .models import Note
 from . import db, textPyng, inputEncoder, finalEncoder
+from . import imagePyng, dict_resnet
 import json
 import pandas as pd
+import tensorflow
+from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img 
+from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
 
 
 views = Blueprint('views', __name__)
@@ -36,6 +40,7 @@ def delete_note():
     
     return jsonify({})
 
+#TextPyng
 @views.route('/textPyng', methods=['GET','POST'])
 def predict():
     #features: island	bill_length_mm	bill_depth_mm	flipper_length_mm	body_mass_g	sex	year
@@ -80,3 +85,28 @@ def predict():
 
     
     return render_template('textPyng.html', user=current_user)
+
+
+
+
+
+#ImagePyng
+@views.route('/imagePyng', methods=['GET','POST'])
+def predictImage():
+    result = ''
+    img_path = ''
+    if request.method == 'POST':
+        img = request.files['my_image']
+        img_path = "input_data/" + img.filename
+        img.save(img_path)
+
+        my_image = load_img(img_path, target_size=(224, 224))
+        my_image = img_to_array(my_image)
+        my_image = my_image.reshape((1, my_image.shape[0], my_image.shape[1], my_image.shape[2]))
+        my_image = preprocess_input(my_image)
+
+        prediction = imagePyng.predict(my_image)
+        result = [list(dict_resnet.keys())[i.argmax()] for i in prediction][0]
+        print(result)
+
+    return render_template('imagePyng.html', prediction=result, img_path=img_path, user=current_user)

@@ -4,17 +4,32 @@ from os import path
 from flask_login import LoginManager
 import pickle
 from joblib import load
+import tensorflow
+from tensorflow.keras.models import model_from_json
  
 db = SQLAlchemy()
 DB_NAME = "database.db"
 
-#Loading the model
+#Loading the text-based model
 textPyng = pickle.load(open('pyngit.sav', 'rb'))
 
-#Loading model encoders
+#Loading text-based model encoders
 inputEncoder = load('scale_encoder.joblib') # load and reuse the model
 finalEncoder = load('oneHot_encoder.joblib') # load and reuse the model
 
+#Loading image-based model
+# load json and create model
+json_file = open('pyngresnet.json', 'r')
+loaded_model_json = json_file.read()
+json_file.close()
+imagePyng = model_from_json(loaded_model_json)
+
+# load weights into new model
+imagePyng.load_weights("pyngresnet.h5")
+
+#loading dict_resnet for image model
+with open('dict_resnet.pkl', 'rb') as f:
+    dict_resnet = pickle.load(f)
 
 def create_app():
     app = Flask(__name__) ##__name__ -> name of the file that was ran
