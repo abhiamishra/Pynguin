@@ -11,6 +11,8 @@ Minimum Value Product:
   - store numerical, textile, and image data (Amazon S3/MS Azure for image storing)
   - **EDIT**
     - CRUD established
+    - Local storage of numerical, textile, and image data done
+    - Both models deployed!
 - OAuth - **DONE**
 - Simple image classification model - **DONE**
 
